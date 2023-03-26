@@ -7,7 +7,7 @@
   To require the module, Put this at the start of your code:
 
   ```lua
-  local module = require(loadstring(game:HttpGet("https://raw.githubusercontent.com/spooderman11/Spooderman.rocks/main/WebhookModule.lua", true)))()
+  local module = loadstring(game:HttpGet("https://raw.githubusercontent.com/spooderman11/Spooderman.rocks/main/WebhookModule.lua", true))()
   ```
 
   To require it in a studio enviroment, Open your `ServerScriptService` Object in your explorer, then check the `LoadstringEnabled` attribute. Then put your code in a script.
@@ -22,7 +22,7 @@
       Webhook: <string> The webhook you want to use.
   ]]
 
-  module:Init({
+  local main = module:Init({
       Executor = false,
       Webhook = "https://discord.com/api/webhooks/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
   })
@@ -37,7 +37,7 @@
       Message: <string> The message you want to send.
   ]]
 
-  module:Message({
+  main:Message({
       Message = "Hello, World!"
   }):Send()
   ```
@@ -57,7 +57,7 @@
       Fields: <table> The fields of the embed.
   ]]
 
-  module:Embed({
+  main:Embed({
       Title = "Hello, World!",
       Description = "This is an embed!",
       Color = 0x00FF00,
